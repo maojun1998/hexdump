@@ -49,23 +49,24 @@ int main(int argc, char *argv[])
 
                 p = scanf_queue(fp);
         show_format_text(p);
-        free(p);
+        free_queue(p);
 
-                /*scanf("%d", &temp);
-                printf("%s\n", dw_hex_to_string(temp));
-                */
+      
         return 0;
 }
 
 void show_format_text(line *p)
 {
-        int optition;
+        char optition;
         while (p != NULL) {
                 p = show_queue(p);
-                printf("\n\t\tPlease put ENTER KEY to continue¡­\n");
+                printf("\n\t\tPlease put ENTER KEY to continueÂ¡Â­\n");
                 scanf("%c", &optition);
+		if (optition == 'q') {
+			p = NULL;
+		}
                 fflush(stdin);
-                }
+        }
 }
 
 char *hex_to_string(long hex_number)
